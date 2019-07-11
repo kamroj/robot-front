@@ -1,0 +1,16 @@
+<button (click)="startRobot()">START ROBOTA</button>
+
+<table *ngIf='listOfBooks.length>0'>
+  <tr>
+    <td>TITLE</td>
+    <td>SUBTITLE</td>
+    <td>AUTHORS</td>
+    <td>PRICE</td>
+  </tr>
+  <tr *ngFor="let book of listOfBooks" >
+      <td>{{book.title}}</td>
+      <td>{{book.subtitle}}</td>
+      <td>{{book.authors}}</td>
+      <td>{{book.price}}</td>
+  </tr>
+</table>
