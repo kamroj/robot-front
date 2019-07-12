@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class HttpClientService {
 
-  private listOfBookEndpoint =  'http://bookrobotja7.herokuapp.com/books';
+  private listOfBookEndpoint =  'https://bookrobotja7.herokuapp.com/books';
 
   constructor(private http: HttpClient) { }
 
