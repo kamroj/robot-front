@@ -19,15 +19,16 @@ export class HomeComponent implements OnInit {
   startRobot() {
     this.httpClientService.getListOfBooks().subscribe(
       data => {
-        console.log('siema');
-        console.log(data);
+        const list: Array<Book> = JSON.parse(data);
+        console.log(list);
+
+        for(const book of list) {
+           this.listOfBooks.push(book);
+        }
       },
       error => {
         console.log(JSON.parse(error));
       }
     );
-    const book = new Book('Pan Tadeusz ', 'Ostatni zjazd na Litwie', 'Mickiewicz', '12,00');
-    this.listOfBooks.push(book);
   }
-
 }
