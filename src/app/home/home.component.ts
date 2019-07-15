@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  searchText: string;
+  searchCategory: string;
   listOfBooks = [];
 
   constructor(private httpClientService: HttpClientService) { }

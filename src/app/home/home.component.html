@@ -1,5 +1,13 @@
+<img src="/assets/img/logo.png">
+<br>
 <button (click)="startRobot()"> START ROBOTA </button>
-
+<input [(ngModel)]="searchText" placeholder="search text goes here">
+<select [(ngModel)]="searchCategory">
+  <option value="title">Title</option>
+  <option value="subtitle">Subtitle</option>
+  <option value="authors">Authors</option>
+  <option value="price">Price</option>
+</select>
 <table *ngIf='listOfBooks.length>0'>
   <tr>
     <td>TITLE</td>
@@ -7,7 +15,7 @@
     <td>AUTHORS</td>
     <td>PRICE</td>
   </tr>
-  <tr *ngFor="let book of listOfBooks" >
+  <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory" >
       <td>{{book.title}}</td>
       <td>{{book.subtitle}}</td>
       <td>{{book.authors}}</td>
