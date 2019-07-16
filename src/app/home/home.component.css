@@ -1,3 +1,7 @@
-.firstInTable {
- color: rgb(55, 46, 41)
+table, td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
 }
+
+table tr:hover td {background-color: #f5f5f5;}
