@@ -1,27 +1,32 @@
 <img src="/assets/img/logo.png">
 <br>
-<button (click)="startRobot()"> START ROBOTA </button>
 <input [(ngModel)]="searchText" placeholder="search text goes here">
 <select [(ngModel)]="searchCategory">
   <option value="title">Title</option>
-  <option value="subtitle">Subtitle</option>
   <option value="authors">Authors</option>
   <option value="price">Price</option>
+  <option value="promotion">Promotion</option>
 </select>
+<br><br>
 <table *ngIf='listOfBooks.length>0'>
   <tr>
-    <td>TITLE</td>
-    <td>AUTHORS</td>
-    <td>PRICE</td>
-    <td>PROMOTION</td>
+    <th></th>
+    <th></th>
+    <th>TITLE</th>
+    <th>AUTHORS</th>
+    <th>PRICE</th>
+    <th>PROMOTION</th>
+    <th>BOOKSTORE</th>
+    <th>LINK</th>
   </tr>
-  <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory" >
-      <td style="font-style:italic">{{book.title}}</td>
+  <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory; let i = index" >
+      <td>{{i}}</td>
+      <td><img src="{{book.img}}"></td>
+      <td class="title">{{book.title}}</td>
       <td>{{book.authors}}</td>
-      <div *ngIf="property" >
-        <td>{{book.price}}</td>
-        <td style="color: red">{{book.promotion}}</td>
-      </div>
-
+      <td>{{book.price}}</td>
+      <td class="promotionPrice">{{book.promotion}}</td>
+      <td>{{book.bookstore}}</td>
+      <td><a href="{{book.href}}" class="href">Sprawdź</a></td>
   </tr>
 </table>
