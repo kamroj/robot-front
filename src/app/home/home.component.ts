@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
         }
       },
       error => {
-        console.log(JSON.parse(error));
+        console.error(error);
       }
     );
   }

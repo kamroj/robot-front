@@ -7,15 +7,11 @@ import { Book } from './book';
 export class FilterPipe implements PipeTransform {
 
   transform(items: Array<Book>, searchText: string, searchCategory: string): any {
-      if (!items) {
-        return items;
-      }
-      if (!searchText) {
-        return items;
-      }
-      searchText = searchText.toLowerCase();
-      return items.filter( it => {
-      return it[searchCategory].toLowerCase().includes(searchText);
+    if (!items || !searchText) {
+      return items;
+    }
+    return items.filter( it => {
+        return it[searchCategory].toLowerCase().includes(searchText.toLowerCase());
     });
   }
 

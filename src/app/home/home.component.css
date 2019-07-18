@@ -1,15 +1,12 @@
-table, td {
-  border: 1px solid grey;
-  border-collapse: collapse;
-  padding: 5px;
-}
-table, th {
+table,th, td {
   border: 1px solid grey;
   border-collapse: collapse;
   padding: 5px;
 }
 
-table tr:hover td {background-color: rgb( 	205, 192, 176);}
+table tr:hover td {
+  background-color: rgb( 	205, 192, 176);
+}
 
 .title {
   font-style: italic;
