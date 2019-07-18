@@ -21,12 +21,12 @@
   </tr>
   <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory; let i = index" >
       <td>{{i}}</td>
-      <td><img src="{{book.img}}"></td>
+      <td><img src="{{book.image}}"></td>
       <td class="title">{{book.title}}</td>
       <td>{{book.authors}}</td>
       <td>{{book.price}}</td>
       <td class="promotionPrice">{{book.promotion}}</td>
       <td>{{book.bookstore}}</td>
-      <td><a href="{{book.href}}" class="href">Sprawdź</a></td>
+      <td><a href="{{book.url}}" class="href">Sprawdź</a></td>
   </tr>
 </table>
