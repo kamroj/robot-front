@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FilterPipe } from './home/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { SortByPipe } from './home/sort-by.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FilterPipe
+    FilterPipe,
+    SortByPipe
   ],
   imports: [
     BrowserModule,

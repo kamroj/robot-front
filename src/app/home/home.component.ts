@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
 
   searchText: string;
   searchCategory: string;
+  sortedBy: string;
+  sortingType = false;
   listOfBooks = [];
 
   constructor(private httpClientService: HttpClientService) { }
@@ -33,5 +35,12 @@ export class HomeComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  changeOrder(event: any) {
+    if (this.sortedBy === event.target.abbr){
+     this.sortingType = !this.sortingType;
+    }
+    this.sortedBy = event.target.abbr;
   }
 }

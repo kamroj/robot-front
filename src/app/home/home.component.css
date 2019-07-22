@@ -12,7 +12,12 @@ table tr:hover td {
   font-style: italic;
 }
 
+.price {
+  width: 100px;
+}
+
 .promotionPrice {
+  width:150px;
   color: red;
 }
 
@@ -21,3 +26,18 @@ table tr:hover td {
   text-decoration: none
 }
 
+.arrow {
+  height: 15px;
+}
+
+.downarrow {
+  height: 15px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  writing-mode: tb-rl;
+}
+
+.first {
+  text-align: left;
+}

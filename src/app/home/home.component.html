@@ -6,25 +6,26 @@
   <option value="authors">Authors</option>
   <option value="price">Price</option>
   <option value="promotion">Promotion</option>
+  <option value="bookstore">Bookstore</option>
 </select>
 <br><br>
-<table *ngIf='listOfBooks.length>0'>
-  <tr>
-    <th></th>
-    <th></th>
-    <th>TITLE</th>
-    <th>AUTHORS</th>
-    <th>PRICE</th>
-    <th>PROMOTION</th>
+<table align="center" *ngIf='listOfBooks.length>0'>
+  <tr class="first" (click)=changeOrder($event)>
+    <th>#</th>
+    <th>IMAGE</th>
+    <th abbr='title'>TITLE<span *ngIf="sortedBy==='title'" [ngClass]="sortingType===true ? 'arrow' : 'downarrow' ">↓</span></th>
+    <th abbr='authors'>AUTHORS<span *ngIf="sortedBy==='authors'" [ngClass]="sortingType===true ? 'arrow' : 'downarrow' ">↓</span></th>
+    <th abbr='price'>PRICE<span *ngIf="sortedBy==='price'" [ngClass]="sortingType===true ? 'arrow' : 'downarrow' ">↓</span></th>
+    <th abbr='promotion'>PROMOTION<span *ngIf="sortedBy==='promotion'" [ngClass]="sortingType===true ? 'arrow' : 'downarrow' ">↓</span></th>
     <th>BOOKSTORE</th>
     <th>LINK</th>
   </tr>
-  <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory; let i = index" >
+  <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory | sortBy: sortedBy: sortingType ; let i = index" >
       <td>{{i}}</td>
       <td><img src="{{book.image}}"></td>
       <td class="title">{{book.title}}</td>
-      <td>{{book.authors}}</td>
-      <td>{{book.price}}</td>
+      <td >{{book.authors}}</td>
+      <td class="price">{{book.price}}</td>
       <td class="promotionPrice">{{book.promotion}}</td>
       <td>{{book.bookstore}}</td>
       <td><a href="{{book.url}}" class="href">Sprawdź</a></td>
