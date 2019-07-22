@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { FilterPipe } from './home/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { SortByPipe } from './home/sort-by.pipe';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SortByPipe } from './home/sort-by.pipe';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
