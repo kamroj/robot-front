@@ -28,7 +28,9 @@ export class HomeComponent implements OnInit {
         console.log(list);
 
         for(const book of list) {
-           this.listOfBooks.push(book);
+
+          book.price = book.price.replace('zł','');
+          this.listOfBooks.push(book);
         }
       },
       error => {
@@ -42,5 +44,20 @@ export class HomeComponent implements OnInit {
      this.sortingType = !this.sortingType;
     }
     this.sortedBy = event.target.abbr;
+  }
+  checkboxBookstore(event: any) {
+
+    console.log(event);
+
+    const checkboxStatus = event.target.checked;
+
+    if (checkboxStatus === true) {
+      this.searchText = event.target.value;
+      this.searchCategory = 'bookstore';
+    } else {
+      this.searchText = '';
+      this.searchCategory = '';
+    }
+
   }
 }

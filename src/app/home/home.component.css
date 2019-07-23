@@ -8,12 +8,16 @@ table tr:hover td {
   background-color: rgb( 	205, 192, 176);
 }
 
+table tr:hover td img {
+  background-color: rgb( 	205, 192, 176);
+}
+
 .title {
   font-style: italic;
 }
 
 .price {
-  width: 250px;
+  width: 10%;
 }
 
 .promotionPrice {
@@ -38,6 +42,30 @@ table tr:hover td {
   writing-mode: tb-rl;
 }
 
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
 .first {
   text-align: left;
 }
+
+.col {
+  border: 2px;
+  border-color: #000000;
+  background: white;
+}
+
+.input {
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+}
+
+.row {
+  border: 1px solid #ccc;
+}
+
