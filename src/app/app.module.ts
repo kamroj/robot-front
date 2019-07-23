@@ -11,7 +11,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PricePipe } from './home/price.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { AuthComponent } from './auth/auth.component';
     SortByPipe,
     PricePipe,
     LoginComponent,
-    RegisterComponent,
-    AuthComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
