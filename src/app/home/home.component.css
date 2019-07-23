@@ -8,16 +8,64 @@ table tr:hover td {
   background-color: rgb( 	205, 192, 176);
 }
 
+table tr:hover td img {
+  background-color: rgb( 	205, 192, 176);
+}
+
 .title {
   font-style: italic;
 }
 
+.price {
+  width: 10%;
+}
+
 .promotionPrice {
+  width:150px;
   color: red;
 }
 
 .href {
   color: #000000;
   text-decoration: none
+}
+
+.arrow {
+  height: 15px;
+}
+
+.downarrow {
+  height: 15px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  writing-mode: tb-rl;
+}
+
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.first {
+  text-align: left;
+}
+
+.col {
+  border: 2px;
+  border-color: #000000;
+  background: white;
+}
+
+.input {
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+}
+
+.row {
+  border: 1px solid #ccc;
 }
 

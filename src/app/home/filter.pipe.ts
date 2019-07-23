@@ -6,12 +6,12 @@ import { Book } from './book';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(items: Array<Book>, searchText: string, searchCategory: string): any {
-    if (!items || !searchText) {
-      return items;
+  transform(books: Array<Book>, searchText: string, searchCategory: string): any {
+    if (!books || !searchText) {
+      return books;
     }
-    return items.filter( it => {
-        return it[searchCategory].toLowerCase().includes(searchText.toLowerCase());
+    return books.filter( book => {
+        return book[searchCategory].toLowerCase().includes(searchText.toLowerCase());
     });
   }
 
