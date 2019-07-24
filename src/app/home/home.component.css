@@ -1,22 +1,12 @@
-table,th, td {
-  border: 1px solid grey;
-  border-collapse: collapse;
-  padding: 5px;
+table tr td {
+  border-bottom: 1px solid #ccc;
 }
-
-table tr:hover td {
-  background-color: rgb( 	205, 192, 176);
-}
-
-table tr:hover td img {
-  background-color: rgb( 	205, 192, 176);
-}
-
 .title {
   font-style: italic;
 }
 
 .price {
+  text-decoration: line-through;
   width: 10%;
 }
 
@@ -34,12 +24,17 @@ table tr:hover td img {
   height: 15px;
 }
 
+
 .downarrow {
   height: 15px;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
   writing-mode: tb-rl;
+}
+
+.cover {
+  height: 60%;
 }
 
 .image {

@@ -37,7 +37,7 @@
     </div>
     <div class="col-8">
       <table  *ngIf='listOfBooks.length>0'>
-        <tr class="first" (click)=changeOrder($event)>
+        <!-- <tr class="first" (click)=changeOrder($event)>
           <th>#</th>
           <th >IMAGE</th>
           <th abbr='title'>TITLE<span *ngIf="sortedBy==='title'" [ngClass]="sortingType===true ? 'arrow' : 'downarrow' ">↓</span></th>
@@ -46,16 +46,42 @@
           <th abbr='promotion'>PROMOTION<span *ngIf="sortedBy==='promotion'" [ngClass]="sortingType===true ? 'arrow' : 'downarrow' ">↓</span></th>
           <th>BOOKSTORE</th>
           <th>LINK</th>
-        </tr>
-        <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory | sortBy: sortedBy: sortingType ; let i = index" >
-            <td>{{i}}</td>
-            <td><img src="{{book.image}}"></td>
-            <td class="title">{{book.title}}</td>
-            <td >{{book.authors}}</td>
-            <td class="price">{{book.price}}</td>
-            <td class="promotionPrice">{{book.promotionalPrice}}</td>
-            <td>{{book.bookstore}}</td>
-            <td><a href="{{book.url}}" class="href">Sprawdź</a></td>
+        </tr> -->
+        <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory | sortBy: sortedBy: sortingType" >
+            <td>
+              <a href={{book.url}}>
+                <img class="cover" src="{{book.image}}">
+              </a>
+            </td>
+            <td>
+              <table>
+                <tr>
+                  <td>
+                    <h5 class="title" >{{book.title}}</h5>
+
+                  <b>Author:</b>{{book.authors}}
+                  <br>
+                  <p>
+                    <b>Bookstore</b> {{book.bookstore}}
+                  </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table>
+                <tr>
+                  <td>
+                    <b class="price">{{book.price}}</b>
+                    <h6 class="promotionPrice">{{book.promotionalPrice}}</h6>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <button>Sprawdź</button>
+            </td>
+          <br>
         </tr>
       </table>
     </div>
