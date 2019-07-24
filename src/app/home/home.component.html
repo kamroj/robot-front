@@ -4,7 +4,9 @@
         <div class="row">
             <img class="image" src="/assets/img/logo.png">
         </div>
-          <br><br>
+        <div class="row">
+          <button *ngIf="info.authority === 'ROLE_ADMIN'" >START</button>
+        </div>
         <div class="row">
           <label>Wyszukiwanie
           <br><input class="input" [(ngModel)]="searchText" placeholder="Search">

@@ -1,3 +1,4 @@
+import { TokenStorageService } from './../auth/token-storage.service';
 import { HttpClientService } from './http-client.service';
 import { Book } from './book';
 import { Component, OnInit } from '@angular/core';
@@ -10,15 +11,21 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   searchText: string;
+  info: any;
   searchCategory: string;
   sortedBy: string;
   sortingType = false;
   listOfBooks = [];
 
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private httpClientService: HttpClientService, private token: TokenStorageService) { }
 
   ngOnInit() {
     this.startRobot();
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
   }
 
   startRobot() {
