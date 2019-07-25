@@ -17,6 +17,12 @@
           </select>
           </label>
         </div>
+        <div *ngIf="roles === 'ROLE_ADMIN'" class="row">
+          <label>Jesteś adminem
+              <button  (click)="start()" >START ROBOTA</button>
+          </label>
+
+        </div>
         <br>
         <div class="row">
           <form style="text-align: left">
@@ -79,7 +85,7 @@
               </table>
             </td>
             <td>
-              <button>Sprawdź</button>
+              <button id="{{book.url}}" (click)="redirectToBook($event)">Sprawdź</button>
             </td>
           <br>
         </tr>

@@ -1,6 +1,9 @@
-import { HttpClientService } from './http-client.service';
+import { HttpClientService } from '../http-client.service';
 import { Book } from './book';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from '../data.service';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +17,41 @@ export class HomeComponent implements OnInit {
   sortedBy: string;
   sortingType = false;
   listOfBooks = [];
+  url: string;
+  roles: string;
 
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private httpClientService: HttpClientService, private router: Router, private data: DataService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     this.startRobot();
+    this.url = '';
+
+    if (this.tokenStorage.getToken()) {
+
+      this.tokenStorage.getAuthorities();
+
+      this.roles = this.tokenStorage.getAuthorities()[0];
+
+    }
+
+  }
+
+
+  start() {
+    this.httpClientService.startRobot().subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   startRobot() {
     this.httpClientService.getListOfBooks().subscribe(
       data => {
+        console.log(data);
         const list: Array<Book> = JSON.parse(data);
         console.log(list);
 
@@ -37,6 +65,13 @@ export class HomeComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  redirectToBook(event: any) {
+    console.log(event);
+    this.url = event.target.id;
+    this.data.changeMessage(this.url);
+    this.router.navigateByUrl('book');
   }
 
   changeOrder(event: any) {
