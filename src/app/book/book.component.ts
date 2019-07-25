@@ -14,10 +14,13 @@ import { PriceHistory } from './priceHistory';
 export class BookComponent implements OnInit {
 
 
-  chart : any;
+  chart: any;
   url: string;
   book: SingleBook;
-  priceHistory: PriceHistory;
+  listpriceHistory: PriceHistory[];
+  listOfDates = [];
+  listOfRetailPrices = [];
+  listOfPromotionalPrices = [];
 
   constructor(private data: DataService, private httpClient: HttpClientService, private router: Router) { }
 
@@ -30,20 +33,29 @@ export class BookComponent implements OnInit {
       data => {
         console.log(data);
         this.book = JSON.parse(data);
-        this.priceHistory = this.book.priceHistory[0];
-        let datas = this.priceHistory.retailPrice;
+        this.listpriceHistory = this.book.priceHistory;
+
+        for(let pricehistory of this.listpriceHistory) {
+
+          this.listOfDates.push(pricehistory.date);
+          this.listOfRetailPrices.push(parseFloat(pricehistory.retailPrice));
+          this.listOfPromotionalPrices.push(parseFloat(pricehistory.promotionalPrice));
+
+
+        }
+
         this.chart = new Chart('canvas', {
           type: 'line',
           data: {
-            labels: ['0', '1', '2'],
+            labels: this.listOfDates,
             datasets: [
               {
-                data: [1, 2, 2],
+                data: this.listOfRetailPrices,
                 borderColor: '#3cba9f',
                 fill: false
               },
               {
-                data: [4, 5, 6],
+                data: this.listOfPromotionalPrices,
                 borderColor: '#ffcc00',
                 fill: false
               }
@@ -58,6 +70,7 @@ export class BookComponent implements OnInit {
                 display: true
               }],
               yAxes: [{
+                display: true
               }
 
               ]
