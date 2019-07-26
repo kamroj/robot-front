@@ -25,15 +25,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.startRobot();
     this.url = '';
-
     if (this.tokenStorage.getToken()) {
-
       this.tokenStorage.getAuthorities();
-
       this.roles = this.tokenStorage.getAuthorities()[0];
-
     }
-
   }
 
 
