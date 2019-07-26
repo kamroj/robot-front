@@ -38,26 +38,15 @@ export class HomeComponent implements OnInit {
 
 
   start() {
-    this.httpClientService.startRobot().subscribe(
-      data => {
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.httpClientService.startRobot();
   }
 
   startRobot() {
     this.httpClientService.getListOfBooks().subscribe(
       data => {
-        console.log(data);
         const list: Array<Book> = JSON.parse(data);
-        console.log(list);
-
-        for(const book of list) {
-
-          book.price = book.price.replace('zł','');
+        for (const book of list) {
+          book.price = book.price.replace('zł', '');
           this.listOfBooks.push(book);
         }
       },
@@ -68,7 +57,6 @@ export class HomeComponent implements OnInit {
   }
 
   redirectToBook(event: any) {
-    console.log(event);
     this.url = event.target.id;
     this.data.changeMessage(this.url);
     this.router.navigateByUrl('book');
@@ -81,9 +69,6 @@ export class HomeComponent implements OnInit {
     this.sortedBy = event.target.abbr;
   }
   checkboxBookstore(event: any) {
-
-    console.log(event);
-
     const checkboxStatus = event.target.checked;
 
     if (checkboxStatus === true) {

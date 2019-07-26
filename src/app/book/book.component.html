@@ -1,23 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col" style="text-align: center;">
         <table>
             <tr>
               <td>
-                <a href={{book.url}}>
-                  <img  src="{{book.image}}">
+                <a href={{book?.url}}>
+                  <img style="height: 200px" src="{{book?.image}}">
                 </a>
               </td>
               <td>
                 <table>
                   <tr>
                     <td>
-                      <h5  >{{book.title}}</h5>
+                      <h5  >{{book?.title}}</h5>
 
-                    <b>Author:</b>{{book.authors}}
+                    <b>Author:</b>{{book?.authors}}
                     <br>
                     <p>
-                      <b>Bookstore</b> {{book.bookstore}}
+                      <b>Bookstore</b> {{book?.bookstore}}
                     </p>
                     </td>
                   </tr>
@@ -27,19 +27,21 @@
                 <table>
                   <tr>
                     <td>
-                      <b >{{book.price}}</b>
-                      <h6 >{{book.promotionalPrice}}</h6>
+                      <b >{{book?.price}}</b>
+                      <h6 >{{book?.promotionalPrice}}</h6>
                     </td>
                   </tr>
                 </table>
               </td>
-              <br>
+              <td>
+                <button (click)="backToHome()">↩</button>
+              </td>
             </tr>
-          </table>
-    </div>
-    <div class="col">
-      <canvas id="canvas">{{chart}}</canvas>
+        </table>
+
     </div>
   </div>
-
+  <div class="row">
+      <canvas id="canvas">{{chart}}</canvas>
+  </div>
 </div>
