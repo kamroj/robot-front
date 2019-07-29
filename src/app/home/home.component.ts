@@ -73,6 +73,14 @@ export class HomeComponent implements OnInit {
       this.searchText = '';
       this.searchCategory = '';
     }
+  }
+  filterOption(event: any) {
+    console.log(event.target.value);
+  }
 
+  paginationNavigation(event: any) {
+    console.log(event);
+
+    console.log(event.target.attributes.value.value);
   }
 }

@@ -1,5 +1,5 @@
 <div class="container">
-  <div class=row>
+  <div class="row">
     <div class="col-3">
         <div class="row">
             <img class="image" src="/assets/img/logo.png">
@@ -21,7 +21,19 @@
           <label>Jesteś adminem
               <button  (click)="start()" >START ROBOTA</button>
           </label>
-
+        </div>
+        <br>
+        <div class="row">
+          <span style="width: 10%"><img class="sort-image"  src="assets/img/sort.png"></span>
+          <select class="input" style="width: 90%; float: right;" (change)="filterOption($event)" >
+              <option value="" selected disabled hidden>Sortowanie</option>
+              <option value="promotional_price_ascending">Od najniższej ceny promocyjnej</option>
+              <option value="promotional_price_descending">Od najwyższej ceny promocyjnej</option>
+              <option value="price_ascending">Od najniższej ceny detalicznej</option>
+              <option value="price_descending">Od najwyższej ceny detalicznej</option>
+              <option value="title_ascending">Rosnący po tytule</option>
+              <option value="title_descending">Malejący po tytule</option>
+          </select>
         </div>
         <br>
         <div class="row">
@@ -43,16 +55,6 @@
     </div>
     <div class="col-8">
       <table  *ngIf='listOfBooks.length>0'>
-        <!-- <tr class="first" (click)=changeOrder($event)>
-          <th>#</th>
-          <th >IMAGE</th>
-          <th abbr='title'>TITLE<span *ngIf="sortedBy==='title'" [ngClass]="sortingType===true ? 'arrow' : 'downarrow' ">↓</span></th>
-          <th abbr='authors'>AUTHORS<span *ngIf="sortedBy==='authors'" [ngClass]="sortingType===true ? 'arrow' : 'downarrow' ">↓</span></th>
-          <th class='price' abbr='price'>PRICE<span *ngIf="sortedBy==='price'" [ngClass]="sortingType===true ? 'arrow' : 'downarrow' ">↓</span></th>
-          <th abbr='promotion'>PROMOTION<span *ngIf="sortedBy==='promotion'" [ngClass]="sortingType===true ? 'arrow' : 'downarrow' ">↓</span></th>
-          <th>BOOKSTORE</th>
-          <th>LINK</th>
-        </tr> -->
         <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory | sortBy: sortedBy: sortingType" >
             <td>
               <a href={{book.url}}>
@@ -90,6 +92,8 @@
           <br>
         </tr>
       </table>
+      <span class="previous" value='previous' (click)="paginationNavigation($event)">&#8592;</span>
+      <span class="next" value='next' (click)="paginationNavigation($event)" >&#8594;</span>
     </div>
   </div>
 </div>

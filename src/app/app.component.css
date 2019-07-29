@@ -7,6 +7,7 @@ img:hover {
   cursor: pointer;
 }
 
-border {
-  border: 2px solid #ccc;
+.border {
+  border-color: 1px solid rgb(55,46,41);
+  border-radius: 2em;
 }
