@@ -8,7 +8,6 @@ import { TokenStorageService } from './auth/token-storage.service';
 })
 export class AppComponent implements OnInit {
 
-  test = 'siemanko';
   title = 'robot-front';
   private roles: string[];
   public authority: string;
