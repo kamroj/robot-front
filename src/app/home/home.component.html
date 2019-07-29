@@ -27,12 +27,12 @@
           <span style="width: 10%"><img class="sort-image"  src="assets/img/sort.png"></span>
           <select class="input" style="width: 90%; float: right;" (change)="filterOption($event)" >
               <option value="" selected disabled hidden>Sortowanie</option>
-              <option value="promotional_price_ascending">Od najniższej ceny promocyjnej</option>
-              <option value="promotional_price_descending">Od najwyższej ceny promocyjnej</option>
-              <option value="price_ascending">Od najniższej ceny detalicznej</option>
-              <option value="price_descending">Od najwyższej ceny detalicznej</option>
-              <option value="title_ascending">Rosnący po tytule</option>
-              <option value="title_descending">Malejący po tytule</option>
+              <option value="PROMOTIONAL_PRICE_ASCENDING">Od najniższej ceny promocyjnej</option>
+              <option value="PROMOTIONAL_PRICE_DESCENDING">Od najwyższej ceny promocyjnej</option>
+              <option value="PRICE_ASCENDING">Od najniższej ceny detalicznej</option>
+              <option value="PRICE_DESCENDING">Od najwyższej ceny detalicznej</option>
+              <option value="TITLE_ASCENDING">Rosnący po tytule</option>
+              <option value="TITLE_DESCENDING">Malejący po tytule</option>
           </select>
         </div>
         <br>
@@ -54,6 +54,9 @@
         </div>
     </div>
     <div class="col-8">
+      <span class="previous" value='previous' (click)="paginationNavigation($event)">&#8592;</span>
+      <span class="next" value='next' (click)="paginationNavigation($event)" >&#8594;</span>
+      <br><br>
       <table  *ngIf='listOfBooks.length>0'>
         <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory | sortBy: sortedBy: sortingType" >
             <td>
