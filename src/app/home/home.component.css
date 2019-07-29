@@ -20,19 +20,6 @@ table tr td {
   text-decoration: none
 }
 
-.arrow {
-  height: 15px;
-}
-
-
-.downarrow {
-  height: 15px;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  writing-mode: tb-rl;
-}
-
 .cover {
   height: 60%;
 }
