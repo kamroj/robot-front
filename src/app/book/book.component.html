@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-centered">
+        <div class="row">
+          <div class="col">
+              <a href={{book?.url}}>
+                  <img style="height: 200px" src="{{book?.image}}">
+                </a>
+          </div>
+          <div class="col">
+              <h5  >{{book?.title}}</h5>
+
+              <b>Author:</b>{{book?.authors}}
+              <br>
+              <p>
+                <b>Bookstore</b> {{book?.bookstore}}
+              </p>
+          </div>
+          <div class="col">
+              <b >{{book?.price}}</b>
+              <h6 >{{book?.promotionalPrice}}</h6>
+          </div>
+          <div class="col">
+              <button (click)="backToHome()">↩</button>
+          </div>
+        </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col col-offset-5">
+        <canvas id="canvas">{{chart}}</canvas>
+    </div>
+  </div>
+</div>

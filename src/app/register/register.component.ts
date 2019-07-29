@@ -19,17 +19,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit() {
-    console.log(this.form);
-
     this.signupInfo = new SignUpInfo(
-      this.form.name,
       this.form.username,
       this.form.email,
       this.form.password);
 
     this.authService.signUp(this.signupInfo).subscribe(
       data => {
-        console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
       },

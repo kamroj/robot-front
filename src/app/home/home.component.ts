@@ -1,6 +1,9 @@
-import { HttpClientService } from './http-client.service';
+import { HttpClientService } from '../http-client.service';
 import { Book } from './book';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from '../data.service';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -14,22 +17,31 @@ export class HomeComponent implements OnInit {
   sortedBy: string;
   sortingType = false;
   listOfBooks = [];
+  url: string;
+  roles: string;
 
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private httpClientService: HttpClientService, private router: Router, private data: DataService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     this.startRobot();
+    this.url = '';
+    if (this.tokenStorage.getToken()) {
+      this.tokenStorage.getAuthorities();
+      this.roles = this.tokenStorage.getAuthorities()[0];
+    }
+  }
+
+
+  start() {
+    this.httpClientService.startRobot();
   }
 
   startRobot() {
     this.httpClientService.getListOfBooks().subscribe(
       data => {
         const list: Array<Book> = JSON.parse(data);
-        console.log(list);
-
-        for(const book of list) {
-
-          book.price = book.price.replace('zł','');
+        for (const book of list) {
+          book.price = book.price.replace('zł', '');
           this.listOfBooks.push(book);
         }
       },
@@ -39,6 +51,12 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  redirectToBook(event: any) {
+    this.url = event.target.id;
+    this.data.changeMessage(this.url);
+    this.router.navigateByUrl('book');
+  }
+
   changeOrder(event: any) {
     if (this.sortedBy === event.target.abbr){
      this.sortingType = !this.sortingType;
@@ -46,9 +64,6 @@ export class HomeComponent implements OnInit {
     this.sortedBy = event.target.abbr;
   }
   checkboxBookstore(event: any) {
-
-    console.log(event);
-
     const checkboxStatus = event.target.checked;
 
     if (checkboxStatus === true) {
