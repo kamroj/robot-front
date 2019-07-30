@@ -33,13 +33,12 @@ export class HttpClientService {
     return this.http.get(this.listOfBookPaginationEndpoint + '/filter?type=' + filter, { responseType: 'text' });
   }
 
-
   getListOfBooks(): Observable<string> {
     return this.http.get(this.listOfBookEndpoint, { responseType: 'text' });
   }
 
   getBook(url): Observable<string> {
-    return this.http.get(this.getBookEndpoint+url, { responseType: 'text' });
+    return this.http.get(this.getBookEndpoint + url, { responseType: 'text' });
   }
 
   startRobot(): Observable<string> {

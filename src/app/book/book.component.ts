@@ -39,6 +39,7 @@ export class BookComponent implements OnInit, OnDestroy {
     }
 
   }
+
   getABook(url: string) {
     this.httpClient.getBook(localStorage.getItem('url')).subscribe(
       data => {
