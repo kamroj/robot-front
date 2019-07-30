@@ -36,15 +36,22 @@
           </select>
         </div>
         <br>
-        <div class="row">
-          <form style="text-align: left">
-              <label>Księgarnie: <br>
+
+        <ng-template #bookstores>
+            <label>Księgarnie: <br>
               <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="empik">Empik</label><br>
               <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="ŚWIAT KSIĄŻKI">Świat Książki</label><br>
               <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="PWN">PWN</label><br>
+              <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="BookOff">BookOff</label><br>
+              <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="TANIA KSIĄŻKA">Tania Książka</label><br>
               <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="">Wszystkie</label><br>
               </label>
-            </form>
+        </ng-template>
+
+        <div class="row">
+          <form style="text-align: left">
+              <ng-content *ngTemplateOutlet="bookstores"></ng-content>
+          </form>
         </div>
         <div class="row">
           <label style="text-align: left">Cena<br>
