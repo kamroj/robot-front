@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
 
 
   start() {
-    this.httpClientService.startRobot();
+    this.httpClientService.startRobot().subscribe();
   }
 
   startRobot() {
