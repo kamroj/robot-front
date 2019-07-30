@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { serverUrl } from './app.component';
 
 
 const httpOptions = {
@@ -12,15 +13,13 @@ const httpOptions = {
 })
 export class HttpClientService {
 
-  private listOfBookEndpoint =  'http://localhost:8085/books';
-  private getBookEndpoint = 'http://localhost:8085/bookUrl/';
-  private start = 'http://localhost:8085/start';
-  private listOfBookPaginationEndpoint = 'http://localhost:8085/books/pagination';
+  private listOfBookEndpoint =  serverUrl + '/books';
+  private getBookEndpoint = serverUrl + '/bookUrl/';
+  private start = serverUrl + '/start';
+  private listOfBookPaginationEndpoint = serverUrl + '/books/pagination';
 
 
   constructor(private http: HttpClient) { }
-
-
 
   getListOfBooksPagination() : Observable<string> {
     return this.http.get(this.listOfBookPaginationEndpoint, { responseType: 'text' });
