@@ -52,7 +52,6 @@ export class HomeComponent implements OnInit {
 
   redirectToBook(event: any) {
     this.url = event.target.id;
-    this.url = this.url.substring(8);
     this.data.changeMessage(this.url);
     this.router.navigateByUrl('book');
   }
