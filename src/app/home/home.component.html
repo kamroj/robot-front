@@ -54,8 +54,8 @@
         </div>
     </div>
     <div class="col-8">
-      <span class="previous" value='previous' (click)="paginationNavigation($event)">&#8592;</span>
-      <span class="next" value='next' (click)="paginationNavigation($event)" >&#8594;</span>
+      <span *ngIf='listOfBooks.length>0' class="previous" value='previous' (click)="paginationNavigation($event)">&#8592;</span>
+      <span *ngIf='listOfBooks.length>0' class="next" value='next' (click)="paginationNavigation($event)" >&#8594;</span>
       <br><br>
       <table  *ngIf='listOfBooks.length>0'>
         <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory | sortBy: sortedBy: sortingType" >
@@ -95,8 +95,8 @@
           <br>
         </tr>
       </table>
-      <span class="previous" value='previous' (click)="paginationNavigation($event)">&#8592;</span>
-      <span class="next" value='next' (click)="paginationNavigation($event)" >&#8594;</span>
+      <span *ngIf='listOfBooks.length>0' class="previous" value='previous' (click)="paginationNavigation($event)">&#8592;</span>
+      <span *ngIf='listOfBooks.length>0' class="next" value='next' (click)="paginationNavigation($event)" >&#8594;</span>
     </div>
   </div>
 </div>
