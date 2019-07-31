@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './auth/token-storage.service';
 
-export const serverUrl = 'http://localhost:8085';
+export const serverUrl = 'https://bookrobotja7.herokuapp.com';
 
 
 @Component({
