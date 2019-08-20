@@ -1,0 +1,13 @@
+img {
+  height: 60px;
+  background-color: white;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.border {
+  border-color: 1px solid rgb(55,46,41);
+  border-radius: 2em;
+}

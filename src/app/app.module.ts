@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BookComponent } from './book/book.component';
 import { ChartsModule } from 'ng2-charts';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ChartsModule } from 'ng2-charts';
     PricePipe,
     LoginComponent,
     RegisterComponent,
-    BookComponent
+    BookComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

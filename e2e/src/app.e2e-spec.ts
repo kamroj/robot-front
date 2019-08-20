@@ -8,10 +8,25 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display Sortowanie', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to robot-front!');
+    expect(page.getTitleText()).toEqual('Login');
   });
+
+  it('should return name of the Bookstore', () => {
+    page.navigateToHome();
+    expect(page.getBookStoreName()).toEqual('Empik');
+  });
+
+  // it('should return next', () => {
+  //   page.navigateTo();
+  //   expect(page.getElementByClass).toBe('&#8594;');
+  // });
+
+  it('should return login button', () => {
+    page.navigateToHome();
+    expect(page.getLoginButton().getText()).toEqual('Login');
+  })
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
