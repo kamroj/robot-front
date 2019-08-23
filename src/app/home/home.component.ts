@@ -33,15 +33,14 @@ export class HomeComponent implements OnInit {
 
 
   start() {
-    this.httpClientService.startRobot();
+    this.httpClientService.startRobot().subscribe();
   }
 
   startRobot() {
-    this.httpClientService.getListOfBooks().subscribe(
+    this.httpClientService.getListOfBooksPagination().subscribe(
       data => {
         const list: Array<Book> = JSON.parse(data);
         for (const book of list) {
-          book.price = book.price.replace('zł', '');
           this.listOfBooks.push(book);
         }
       },
@@ -73,6 +72,39 @@ export class HomeComponent implements OnInit {
       this.searchText = '';
       this.searchCategory = '';
     }
+  }
+  filterOption(event: any) {
+    const filter = event.target.value;
+    this.httpClientService.getListOfBooksPaginationFilter(filter).subscribe(
+      data => {
+        this.listOfBooks = [];
+        const list: Array<Book> = JSON.parse(data);
+        for (const book of list) {
+          this.listOfBooks.push(book);
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 
+  paginationNavigation(event: any) {
+    console.log(event);
+
+    const navigate = event.target.attributes.value.value;
+
+    this.httpClientService.getListOfBooksPaginationNavigate(navigate).subscribe(
+      data => {
+        this.listOfBooks = [];
+        const list: Array<Book> = JSON.parse(data);
+        for (const book of list) {
+          this.listOfBooks.push(book);
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }

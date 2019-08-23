@@ -13,8 +13,6 @@ import { PriceHistory } from './priceHistory';
 })
 export class BookComponent implements OnInit, OnDestroy {
 
-
-
   chart: any;
   url: string;
   book: SingleBook;
@@ -39,9 +37,11 @@ export class BookComponent implements OnInit, OnDestroy {
     }
 
   }
+
   getABook(url: string) {
     this.httpClient.getBook(localStorage.getItem('url')).subscribe(
       data => {
+        console.log(data);
         this.book = JSON.parse(data);
         this.displayLastPrice(this.book);
         this.settingPricesToList();

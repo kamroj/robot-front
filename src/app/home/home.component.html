@@ -1,5 +1,5 @@
 <div class="container">
-  <div class=row>
+  <div class="row">
     <div class="col-3">
         <div class="row">
             <img class="image" src="/assets/img/logo.png">
@@ -21,18 +21,37 @@
           <label>Jesteś adminem
               <button  (click)="start()" >START ROBOTA</button>
           </label>
-
         </div>
         <br>
         <div class="row">
-          <form style="text-align: left">
-              <label>Księgarnie: <br>
+          <span style="width: 10%"><img class="sort-image"  src="assets/img/sort.png"></span>
+          <select class="input" style="width: 90%; float: right;" (change)="filterOption($event)" >
+              <option value="" selected disabled hidden>Sortowanie</option>
+              <option value="PROMOTIONAL_PRICE_ASCENDING">Od najniższej ceny promocyjnej</option>
+              <option value="PROMOTIONAL_PRICE_DESCENDING">Od najwyższej ceny promocyjnej</option>
+              <option value="PRICE_ASCENDING">Od najniższej ceny detalicznej</option>
+              <option value="PRICE_DESCENDING">Od najwyższej ceny detalicznej</option>
+              <option value="TITLE_ASCENDING">Rosnący po tytule</option>
+              <option value="TITLE_DESCENDING">Malejący po tytule</option>
+          </select>
+        </div>
+        <br>
+
+        <ng-template #bookstores>
+            <label>Księgarnie: <br>
               <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="empik">Empik</label><br>
               <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="ŚWIAT KSIĄŻKI">Świat Książki</label><br>
               <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="PWN">PWN</label><br>
+              <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="BookOff">BookOff</label><br>
+              <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="TANIA KSIĄŻKA">Tania Książka</label><br>
               <label><input type="radio" name="bookstoreName" class="btn btn-secondary" (change)="checkboxBookstore($event)" value="">Wszystkie</label><br>
               </label>
-            </form>
+        </ng-template>
+
+        <div class="row">
+          <form style="text-align: left">
+              <ng-content *ngTemplateOutlet="bookstores"></ng-content>
+          </form>
         </div>
         <div class="row">
           <label style="text-align: left">Cena<br>
@@ -42,6 +61,9 @@
         </div>
     </div>
     <div class="col-8">
+      <span *ngIf='listOfBooks.length>0' class="previous" value='previous' (click)="paginationNavigation($event)">&#8592;</span>
+      <span *ngIf='listOfBooks.length>0' class="next" value='next' (click)="paginationNavigation($event)" >&#8594;</span>
+      <br><br>
       <table  *ngIf='listOfBooks.length>0'>
         <tr *ngFor="let book of listOfBooks | filter: searchText: searchCategory | sortBy: sortedBy: sortingType" >
             <td>
@@ -80,6 +102,8 @@
           <br>
         </tr>
       </table>
+      <span *ngIf='listOfBooks.length>0' class="previous" value='previous' (click)="paginationNavigation($event)">&#8592;</span>
+      <span *ngIf='listOfBooks.length>0' class="next" value='next' (click)="paginationNavigation($event)" >&#8594;</span>
     </div>
   </div>
 </div>

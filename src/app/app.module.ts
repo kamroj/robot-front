@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BookComponent } from './book/book.component';
 import { ChartsModule } from 'ng2-charts';
+import { httpInterceptorProviders } from './auth/auth-interceptor';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { ChartsModule } from 'ng2-charts';
     NgbModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -40,6 +40,10 @@ table tr td {
   background: white;
 }
 
+.sort-image {
+  height: 20px;
+}
+
 .input {
   width: 50%;
   border: 1px solid #ccc;
@@ -49,5 +53,27 @@ table tr td {
 
 .row {
   border: 1px solid #ccc;
+}
+
+.border {
+  border-radius: 2em;
+}
+
+.previous {
+  font-size: 200%;
+  float: left;
+}
+
+.next {
+  font-size: 200%;
+  float: right;
+}
+
+.previous:hover {
+  cursor: pointer;
+}
+
+.next:hover {
+  cursor: pointer;
 }
 
