@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { serverUrl } from './app.component';
+import { SignUpInfo } from './auth/signup-info';
 
 
 const httpOptions = {
@@ -17,6 +18,7 @@ export class HttpClientService {
   private getBookEndpoint = serverUrl + '/bookUrl/';
   private start = serverUrl + '/start';
   private listOfBookPaginationEndpoint = serverUrl + '/books/pagination';
+  private createUserEndpoint = serverUrl + '/newUser';
 
 
   constructor(private http: HttpClient) { }
@@ -43,5 +45,9 @@ export class HttpClientService {
 
   startRobot(): Observable<string> {
     return this.http.get(this.start, { responseType: 'text' });
+  }
+
+  createUser(info: SignUpInfo): Observable<string> {
+    return this.http.post<string>(this.createUserEndpoint, info, httpOptions);
   }
 }

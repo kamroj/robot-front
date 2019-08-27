@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { BookComponent } from './book/book.component';
 import { ChartsModule } from 'ng2-charts';
 import { NavComponent } from './nav/nav.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NavComponent } from './nav/nav.component';
     LoginComponent,
     RegisterComponent,
     BookComponent,
-    NavComponent
+    NavComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,15 @@
+import { HttpClientService } from './../http-client.service';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SignUpInfo } from '../auth/signup-info';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-create-user',
+  templateUrl: './create-user.component.html',
+  styleUrls: ['./create-user.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class CreateUserComponent implements OnInit {
 
   form: any = {};
   signupInfo: SignUpInfo;
@@ -15,19 +17,22 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private httpClient: HttpClientService) { }
 
   ngOnInit() { }
 
   onSubmit() {
+
     this.signupInfo = new SignUpInfo(
       this.form.username,
       this.form.email,
       this.form.password,
-      ['user']
+      [this.form.role, this.form.roles]
       );
 
-    this.authService.signUp(this.signupInfo).subscribe(
+    console.log(this.signupInfo);
+
+    this.httpClient.createUser(this.signupInfo).subscribe(
       data => {
         this.isSignedUp = true;
         this.isSignUpFailed = false;
@@ -39,5 +44,4 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
-
 }

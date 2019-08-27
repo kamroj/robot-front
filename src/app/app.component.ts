@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './auth/token-storage.service';
 
-export const serverUrl = 'https://bookrobotja7.herokuapp.com';
+// export const serverUrl = 'https://bookrobotja7.herokuapp.com';
+export const serverUrl = 'http://localhost:8085';
+
 
 
 @Component({
@@ -27,9 +29,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-  logout() {
-    this.tokenStorage.signOut();
-    window.location.replace('/home');
-  }
+
 
 }
