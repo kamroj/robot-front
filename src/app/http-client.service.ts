@@ -39,8 +39,8 @@ export class HttpClientService {
     return this.http.get(this.listOfBookEndpoint, { responseType: 'text' });
   }
 
-  getBook(url): Observable<string> {
-    return this.http.get(this.getBookEndpoint + url, { responseType: 'text' });
+  getBook(id): Observable<string> {
+    return this.http.get(this.getBookEndpoint + id, { responseType: 'text' });
   }
 
   startRobot(): Observable<string> {

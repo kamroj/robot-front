@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
     this.httpClientService.getListOfBooksPagination().subscribe(
       data => {
         const list: Array<Book> = JSON.parse(data);
+        console.log(list);
         for (const book of list) {
           this.listOfBooks.push(book);
         }
@@ -52,6 +53,7 @@ export class HomeComponent implements OnInit {
 
   redirectToBook(event: any) {
     this.id = event.target.id;
+    console.log("ajdi ksiazzki "+this.id);
     this.data.changeMessage(this.id);
     this.router.navigateByUrl('book');
   }
