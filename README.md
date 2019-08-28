@@ -1,27 +1,48 @@
-# RobotFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+<p align="center">
+  <img height="300" src="src/assets/img/logo.png">
+</p>
 
-## Development server
+# BookRobot
+Aplikacja zbierająca informacje o dostępnych przecenionych książkach w różnych bibliotekach internetowych. Ceny pobierane są poprzez zdrapywanie stron internetowych oraz za pośrednictwem interfejsów REST API. Dane na temat książek i historii ich cen zapisywane są do bazy danych.
+---
+***
+## Zanim stworzymy projekt
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Zanim zaczniemy, upewnij się czy masz zaintalowanego Node.js oraz npm package manager.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Node.js
 
-## Build
+Angular wymaga Node.js w wersji 10.9.0 lub starszej:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Aby sprawdzić wersje, odpal `node -v` w terminalu
+- Aby zainstalować Node.js odwiedź nodejs.org
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### NPM
 
-## Running end-to-end tests
+Aplikacje angularowe opierają się na zależnościach i bibliotekach zarządzanych za pomocą npm package manager.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+https://docs.npmjs.com/cli/install link do instalacji.
 
-## Further help
+Aby sprawdzić czy posiada się zainstalowanego klienta npm należy odpalić `npm -v` w terminalu
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Angular Cli
+
+Używasz Angular CLI do tworzenia projektów, generowania kodu aplikacji i biblioteki oraz wykonywania różnych bieżących zadań programistycznych, takich jak testowanie, pakowanie i wdrażanie.
+
+Aby zainstalować CLI za pomocą npm, otwórz okno terminalu i wprowadź następujące polecenie: `npm install -g @angular/cli`
+
+
+## Odpalenie aplikacji
+
+Aby odpalić aplikację należy wprowadzić następujące polecenia:
+
+ `ng build --aot --prod`
+
+a następnie 
+
+ `node server.js` 
+
+Aplikacja powinna działać pod adresem http://localhost:8080
