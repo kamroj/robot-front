@@ -6,7 +6,7 @@ const app = express();
 
 // Serve only the static files form the angularapp directory
 app.use(express.static(__dirname + '/dist/robot-front'));
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8081);
 
 app.get('/*', function(req,res) {
     res.sendFile(path.join(__dirname+'/dist/robot-front/index.html'));

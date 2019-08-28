@@ -17,14 +17,14 @@ export class HomeComponent implements OnInit {
   sortedBy: string;
   sortingType = false;
   listOfBooks = [];
-  url: string;
+  id: string;
   roles: string;
 
   constructor(private httpClientService: HttpClientService, private router: Router, private data: DataService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     this.startRobot();
-    this.url = '';
+    this.id = '';
     if (this.tokenStorage.getToken()) {
       this.tokenStorage.getAuthorities();
       this.roles = this.tokenStorage.getAuthorities()[0];
@@ -51,14 +51,14 @@ export class HomeComponent implements OnInit {
   }
 
   redirectToBook(event: any) {
-    this.url = event.target.id;
-    this.data.changeMessage(this.url);
+    this.id = event.target.id;
+    this.data.changeMessage(this.id);
     this.router.navigateByUrl('book');
   }
 
   changeOrder(event: any) {
-    if (this.sortedBy === event.target.abbr){
-     this.sortingType = !this.sortingType;
+    if (this.sortedBy === event.target.abbr) {
+      this.sortingType = !this.sortingType;
     }
     this.sortedBy = event.target.abbr;
   }

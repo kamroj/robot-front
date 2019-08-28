@@ -8,6 +8,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
   form: any = {};
   signupInfo: SignUpInfo;
   isSignedUp = false;
@@ -22,7 +23,9 @@ export class RegisterComponent implements OnInit {
     this.signupInfo = new SignUpInfo(
       this.form.username,
       this.form.email,
-      this.form.password);
+      this.form.password,
+      ['user']
+      );
 
     this.authService.signUp(this.signupInfo).subscribe(
       data => {

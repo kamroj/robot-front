@@ -1,3 +1,4 @@
+import { CreateUserComponent } from './create-user/create-user.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'book',
     component: BookComponent
+  },
+  {
+    path: 'newuser',
+    component: CreateUserComponent
   }
 ];
 

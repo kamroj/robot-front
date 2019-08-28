@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+  <a><img class="navbar-brand img" routerLink="/" src="/assets/img/logo.png"></a>
+  <div class="collapse navbar-collapse border" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 border" routerLinkActive="active">
+      <li class="nav-item border">
+        <a class="nav-link" routerLink="home">   Strona Główna</a>
+      </li>
+      <li class="nav-item" *ngIf="!roles">
+        <a class="nav-link" id="login" routerLink="auth/login">Logowanie</a>
+      </li>
+      <li class="nav-item" *ngIf="roles === 'ROLE_ADMIN'">
+        <a class="nav-link" id="newUser" routerLink="newuser">Dodaj użytkownika</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav border">
+      <li class="nav-item border" *ngIf="roles">
+        <a class="nav-link" (click)="logout()">Wyloguj</a>
+      </li>
+    </ul>
+  </div>
+</nav>
