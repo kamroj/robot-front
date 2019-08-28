@@ -96,9 +96,15 @@
                 </tr>
               </table>
             </td>
-            <td>
-              <button id="{{book.id}}" (click)="redirectToBook($event)">Sprawdź</button>
+
+            <td *ngIf="roles; else redirectToBookTemplate">
+                <button id="{{book.id}}" (click)="redirectToBook($event)">Sprawdź</button>
             </td>
+            <ng-template #redirectToBookTemplate>
+                <td>
+                    <button (click)="toLoginSite()">Tylko dla zalogowanych</button>
+                </td>
+            </ng-template>
           <br>
         </tr>
       </table>
