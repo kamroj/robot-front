@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
   start() {
     this.httpClientService.startRobot().subscribe();
   }
@@ -40,7 +39,6 @@ export class HomeComponent implements OnInit {
     this.httpClientService.getListOfBooksPagination().subscribe(
       data => {
         const list: Array<Book> = JSON.parse(data);
-        console.log(list);
         for (const book of list) {
           this.listOfBooks.push(book);
         }
@@ -53,7 +51,6 @@ export class HomeComponent implements OnInit {
 
   redirectToBook(event: any) {
     this.id = event.target.id;
-    console.log("ajdi ksiazzki "+this.id);
     this.data.changeMessage(this.id);
     this.router.navigateByUrl('book');
   }
@@ -75,6 +72,7 @@ export class HomeComponent implements OnInit {
       this.searchCategory = '';
     }
   }
+
   filterOption(event: any) {
     const filter = event.target.value;
     this.httpClientService.getListOfBooksPaginationFilter(filter).subscribe(
@@ -108,5 +106,9 @@ export class HomeComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  toLoginSite() {
+    this.router.navigateByUrl('/auth/login');
   }
 }
