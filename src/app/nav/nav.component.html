@@ -8,14 +8,14 @@
       <li class="nav-item" *ngIf="!authority">
         <a class="nav-link" id="login" routerLink="auth/login">Login</a>
       </li>
-      <!-- <li class="nav-item" *ngIf="roles === 'ROLE_ADMIN'"> -->
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="roles === 'ROLE_ADMIN'">
+      <!-- <li class="nav-item"> -->
         <a class="nav-link" id="newUser" routerLink="newuser">Create User</a>
       </li>
     </ul>
     <ul class="navbar-nav border">
-      <li class="nav-item border" *ngIf="authority">
-        <a class="nav-link" (click)="logout()">⍇</a>
+      <li class="nav-item border" >
+        <a class="nav-link" (click)="logout()">dupa</a>
       </li>
     </ul>
   </div>

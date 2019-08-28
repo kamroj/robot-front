@@ -15,6 +15,8 @@ import { BookComponent } from './book/book.component';
 import { ChartsModule } from 'ng2-charts';
 import { NavComponent } from './nav/nav.component';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { httpInterceptorProviders } from './auth/auth-interceptor';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
     NgbModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

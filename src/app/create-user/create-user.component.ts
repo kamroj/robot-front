@@ -22,12 +22,11 @@ export class CreateUserComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit() {
-
     this.signupInfo = new SignUpInfo(
       this.form.username,
       this.form.email,
       this.form.password,
-      [this.form.role, this.form.roles]
+      this.returnArray(this.form.admin, this.form.user)
       );
 
     console.log(this.signupInfo);
@@ -43,5 +42,17 @@ export class CreateUserComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     );
+  }
+
+   returnArray( admin: boolean, user: boolean): string[] {
+    let arr = [];
+    if (admin && user) {
+      arr = ['admin', 'user'];
+    } else if (admin) {
+      arr = ['admin'];
+    } else {
+      arr = ['user'];
+    }
+    return arr;
   }
 }
