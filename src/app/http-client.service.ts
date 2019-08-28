@@ -15,7 +15,7 @@ const httpOptions = {
 export class HttpClientService {
 
   private listOfBookEndpoint =  serverUrl + '/books';
-  private getBookEndpoint = serverUrl + '/bookUrl/';
+  private getBookEndpoint = serverUrl + '/book/';
   private start = serverUrl + '/start';
   private listOfBookPaginationEndpoint = serverUrl + '/books/pagination';
   private createUserEndpoint = serverUrl + '/newUser';
