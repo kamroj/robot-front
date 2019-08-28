@@ -18,11 +18,6 @@ describe('workspace-project App', () => {
     expect(page.getBookStoreName()).toEqual('Empik');
   });
 
-  // it('should return next', () => {
-  //   page.navigateTo();
-  //   expect(page.getElementByClass).toBe('&#8594;');
-  // });
-
   it('should return login button', () => {
     page.navigateToHome();
     expect(page.getLoginButton().getText()).toEqual('Login');

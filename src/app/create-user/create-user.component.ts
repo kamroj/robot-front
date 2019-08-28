@@ -24,7 +24,7 @@ export class CreateUserComponent implements OnInit {
       this.form.username,
       this.form.email,
       this.form.password,
-      this.returnArray(this.form.admin, this.form.user)
+      this.selectedRoles(this.form.admin, this.form.user)
     );
 
     console.log(this.signupInfo);
@@ -42,7 +42,7 @@ export class CreateUserComponent implements OnInit {
     );
   }
 
-  returnArray(admin: boolean, user: boolean): string[] {
+  selectedRoles(admin: boolean, user: boolean): string[] {
     let arr = [];
     if (admin && user) {
       arr = ['admin', 'user'];
