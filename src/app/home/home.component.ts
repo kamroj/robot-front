@@ -57,8 +57,8 @@ export class HomeComponent implements OnInit {
   }
 
   changeOrder(event: any) {
-    if (this.sortedBy === event.target.abbr){
-     this.sortingType = !this.sortingType;
+    if (this.sortedBy === event.target.abbr) {
+      this.sortingType = !this.sortingType;
     }
     this.sortedBy = event.target.abbr;
   }

@@ -1,8 +1,6 @@
 import { HttpClientService } from './../http-client.service';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SignUpInfo } from '../auth/signup-info';
-import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-create-user',
@@ -27,7 +25,7 @@ export class CreateUserComponent implements OnInit {
       this.form.email,
       this.form.password,
       this.returnArray(this.form.admin, this.form.user)
-      );
+    );
 
     console.log(this.signupInfo);
 
@@ -44,7 +42,7 @@ export class CreateUserComponent implements OnInit {
     );
   }
 
-   returnArray( admin: boolean, user: boolean): string[] {
+  returnArray(admin: boolean, user: boolean): string[] {
     let arr = [];
     if (admin && user) {
       arr = ['admin', 'user'];

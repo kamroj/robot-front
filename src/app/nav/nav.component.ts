@@ -17,6 +17,7 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.tokenStorage.getAuthorities();
+      console.log('authorities:  ' + this.tokenStorage.getAuthorities());
       this.roles = this.tokenStorage.getAuthorities()[0];
     }
   }
